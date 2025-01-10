@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"project/events/telegram"
 )
 
 const (
@@ -11,7 +10,7 @@ const (
 )
 
 func main() {
-	tgClient = telegram.New(tgBotHost, mustToken())
+	//tgClient = telegram.New(tgBotHost, mustToken())
 
 	// fethcer = fetcher.New(tgClient)
 
@@ -34,6 +33,6 @@ func mustToken() (string, error) {
 		log.Fatal("token is not specified")
 	}
 
-	return *token
+	return *token, nil
 
 }
