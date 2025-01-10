@@ -3,8 +3,7 @@ package main
 import (
 	"flag"
 	"log"
-
-	
+	"project/events/telegram"
 )
 
 const (
