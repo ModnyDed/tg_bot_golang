@@ -56,14 +56,13 @@ func (s Storage) PickRandom(userName string) (page *storage.Page, err error) {
 
 	path := filepath.Join(s.basePath, userName)
 
-
 	// 1. проверить список папок внутри storage и если его там нет, то сообщаем пользователю, что он ничего не сохранял
 
 	// Проверка, существует ли директория
 	if _, err := os.Stat(path); errors.Is(err, os.ErrNotExist) {
-		return nil, errors.New("пользователь ничего не сохранял")
+		return nil, errors.New("the user did't save anything")
 	} else if err != nil {
-		return nil, e.Wrap("не удалось проверить существование директории", err)
+		return nil, e.Wrap("the error to check existing files", err)
 	}
 
 	files, err := os.ReadDir(path)
