@@ -11,15 +11,15 @@ import (
 )
 
 const (
-	tgBotHost = "api.telegram.org"
-	storagePath = "storage"
-	batchSize = 100
+	tgBotHost   = "api.telegram.org" 
+	storagePath = "files_storage"
+	batchSize   = 100
 )
 
 func main() {
-	
+
 	eventsProcessor := telegram.New(
-		tgClient.New(tgBotHost, mustToken()), 
+		tgClient.New(tgBotHost, mustToken()),
 		files.New(storagePath),
 	)
 
@@ -33,9 +33,9 @@ func main() {
 
 }
 
-func mustToken() (string, error) {
+func mustToken() string {
 	token := flag.String(
-		"token-bot-token",
+		"tg-bot-token",
 		"",
 		"token for access to telegram bot",
 	)
@@ -46,6 +46,6 @@ func mustToken() (string, error) {
 		log.Fatal("token is not specified")
 	}
 
-	return *token, nil
+	return *token
 
 }

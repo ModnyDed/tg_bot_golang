@@ -2,7 +2,7 @@ package telegram
 
 import (
 	"errors"
-	telegram "project/clients/Telegram"
+	"project/clients/telegram"
 	"project/events"
 	"project/lib/e"
 	"project/storage"
